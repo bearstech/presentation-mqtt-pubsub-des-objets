@@ -1,0 +1,17 @@
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-Regular.eot');
+    src: local('Fira Sans Regular'),
+         url('FiraSans-Regular.eot') format('embedded-opentype'),
+         url('http://localhost:9000/FiraSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+.slide {
+    text-shadow: none;
+}
+
+body {
+    font-family: 'Fira Sans';
+}
+
