@@ -1,21 +1,23 @@
 !SLIDE
 
-MQTT
+#MQTT
 
 Message Queue Telemetry Transport
 
 !SLIDE
 
-MQTT est conçu comme SNMP simple, léger et résiliant, conçu par des chercheurs d'IBM et de Cirrus Link Solution. Assymétrique, il prévoit des clients léger qui délèguent tout le travail au serveur.
+MQTT a été initialement conçu par des chercheurs d'IBM et de Cirrus Link Solution comme un remplaçant de SNMP, simple, léger et résiliant, pour devenir un outil de pubsub "durci".
+
+Assymétrique, il prévoit des clients légers qui délèguent une large part du travail au serveur.
 
 !SLIDE
 
 #Un protocole
 
-MQTT est un protocole bien spécifié, en version 3.1 implémenté par différents serveurs.
-Certains sont libre comme RabbitMQ ou Mosquitto, bien plus léger.
+MQTT est un protocole bien spécifié, en version 3.1 implémenté par différents clients et serveurs.
+Certains sont libre et massif comme RabbitMQ ou plus léger, comme Mosquitto.
 
-Il existe MQTT-S, spécifique aux capteurs non TCP/IP.
+Il existe MQTT-S, une sous norme spécifique aux capteurs non TCP/IP (Zigbee, par exemple).
 
 !SLIDE
 
@@ -26,7 +28,7 @@ Il existe MQTT-S, spécifique aux capteurs non TCP/IP.
 * Sujet en UTF8, corps en blob
 * Pas de headers, mais quelques flags
 * Abonnement sur des patterns
-* Ping des cliens
+* Ping des clients
 
 !SLIDE
 
