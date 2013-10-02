@@ -20,5 +20,8 @@ p {
 }
 #slide3 h1 {
     font-size: 500%;
+}
+
+#slide3 {
     text-align: center;
 }
