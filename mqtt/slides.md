@@ -14,7 +14,7 @@ Les clients sont actifs, envoient et reçoivent des évènements.
 
 !SLIDE
 
-#Un protocole
+##Un protocole
 
 MQTT est un protocole bien spécifié, en version 3.1, implémenté par différents clients et serveurs. Il souhaiterait devenir un standard OASIS.
 Certaines implémentations sont libres et massives comme RabbitMQ ou plus légères, comme Mosquitto.
@@ -23,7 +23,7 @@ Il existe MQTT-S, une sous norme spécifique aux capteurs non TCP/IP (Zigbee, pa
 
 !SLIDE
 
-#Simple
+##Simple
 
 * TCP/IP, mode connecté, orienté message
 * Authentification naïve ou certificat SSL
@@ -34,7 +34,7 @@ Il existe MQTT-S, une sous norme spécifique aux capteurs non TCP/IP (Zigbee, pa
 
 !SLIDE
 
-#Léger
+##Léger
 
 * Overhead minimaliste, 2 octets pour un petit message, 5 octets pour 256M.
 * _Topic_ de 64k maximum
@@ -44,7 +44,7 @@ Il existe MQTT-S, une sous norme spécifique aux capteurs non TCP/IP (Zigbee, pa
 
 !SLIDE
 
-#Résiliant
+##Résiliant
 
 * 3 niveaux de QOS : pas plus d’un, au moins un, juste un.
 * Testament et dernière volonté
@@ -53,7 +53,7 @@ Il existe MQTT-S, une sous norme spécifique aux capteurs non TCP/IP (Zigbee, pa
 
 !SLIDE
 
-#Monde réel
+##Monde réel
 
 MQTT a plus de 10 ans et est utilisé dans des contextes variés
 
@@ -63,7 +63,7 @@ MQTT a plus de 10 ans et est utilisé dans des contextes variés
 
 !SLIDE
 
-#Code
+##Code
 
 * Il possible de l'utiliser sans toucher à du code d'IBM ou même Eclipse
 * Son modèle évènementiel fait un peu grincer les langages séquentiels

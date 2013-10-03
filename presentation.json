@@ -3,6 +3,7 @@
     "theme": "memories",
     "duration": 20,
     "sections": {
+        "main": "",
         "reseau": "Disgression sur le réseau",
         "mqtt": "MQTT"
     }
