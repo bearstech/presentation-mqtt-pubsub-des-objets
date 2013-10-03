@@ -10,14 +10,14 @@ MQTT a été initialement conçu par des chercheurs d'IBM et de Cirrus Link Solu
 
 Il fonctionne à l'envers, on s'abonne pour recevoir des informations, plutôt que l'inefficace polling.
 
-Assymétrique, il prévoit des clients légers qui délèguent une large part du travail au serveur.
+Les clients sont actifs, envoient et reçoivent des évènements.
 
 !SLIDE
 
 #Un protocole
 
-MQTT est un protocole bien spécifié, en version 3.1, implémenté par différents clients et serveurs. Il souhaiterai devenir un standard OASIS.
-Certaines implémentation sont libre et massive comme RabbitMQ ou plus légere, comme Mosquitto.
+MQTT est un protocole bien spécifié, en version 3.1, implémenté par différents clients et serveurs. Il souhaiterait devenir un standard OASIS.
+Certaines implémentations sont libres et massives comme RabbitMQ ou plus légères, comme Mosquitto.
 
 Il existe MQTT-S, une sous norme spécifique aux capteurs non TCP/IP (Zigbee, par exemple).
 
@@ -46,7 +46,7 @@ Il existe MQTT-S, une sous norme spécifique aux capteurs non TCP/IP (Zigbee, pa
 
 #Résiliant
 
-* 3 niveaux de QOS : pas plus de un, au moins un, juste un.
+* 3 niveaux de QOS : pas plus d’un, au moins un, juste un.
 * Testament et dernière volonté
 * Boite à messages
 * Routage de messages possible
@@ -55,10 +55,10 @@ Il existe MQTT-S, une sous norme spécifique aux capteurs non TCP/IP (Zigbee, pa
 
 #Monde réel
 
-MQTT a plus de 10 ans et est utilisé dans des contexts variés
+MQTT a plus de 10 ans et est utilisé dans des contextes variés
 
 * 17 000 km de pipelines pétroliers, 30k capteurs
-* Monitoring de pacemaker
+* Monitoring de pacemakeur
 * Applications iOS Facebook
 
 !SLIDE
@@ -66,6 +66,7 @@ MQTT a plus de 10 ans et est utilisé dans des contexts variés
 #Code
 
 * Il possible de l'utiliser sans toucher à du code d'IBM ou même Eclipse
-* Son modèle événementiel fait un peu grincer les languages séquentiels
+* Son modèle évènementiel fait un peu grincer les langages séquentiels
 * Beaucoup de serveurs pour peu de clients. CLI, C, python, lua, Objective-C
+* Proxy websockets existant, mais sans normes
 * Rien n'est prévu pour découvrir le broker, il faut configurer l'application
