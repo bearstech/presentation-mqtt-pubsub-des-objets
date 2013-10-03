@@ -1,1 +1,9 @@
-{ "title": "", "theme": "memories", "duration": 20, "sections": { "main": "MQTT" } }
+{
+    "title": "MQTT, le pubsub des objets",
+    "theme": "memories",
+    "duration": 20,
+    "sections": {
+        "reseau": "Disgression sur le réseau",
+        "mqtt": "MQTT"
+    }
+}
