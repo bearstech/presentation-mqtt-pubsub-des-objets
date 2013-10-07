@@ -1,7 +1,9 @@
 MQTT, le pubsub des objets?
 ===========================
 
-Présentation faite lors de l'[OSCD 2013](http://act.osdc.fr/osdc2013fr/talk/5057) au beffroi de Montrouge.
+Présentation faites lors de l'[OSCD 2013](http://act.osdc.fr/osdc2013fr/talk/5057) au beffroi de Montrouge.
+
+La partie électronique de la démo Arduino, a été réalisée grâce à l'expertise de Ckab.
 
 Présentation
 ------------
