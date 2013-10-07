@@ -1,7 +1,7 @@
 MQTT, le pubsub des objets?
 ===========================
 
-Présentation faites lors de l'[OSCD 2013](http://act.osdc.fr/osdc2013fr/talk/5057) au beffroi de Montrouge.
+Présentation faite lors de l'[OSCD 2013](http://act.osdc.fr/osdc2013fr/talk/5057) au beffroi de Montrouge.
 
 Présentation
 ------------
