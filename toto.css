@@ -55,3 +55,7 @@ em {
 #slide12 {
     text-align: center;
 }
+
+#slide22 img {
+    height: 600px;
+}

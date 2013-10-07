@@ -94,6 +94,10 @@ Mosquitto comme broker.
 Un client Arduino avec une photorésistance et une DEL.
 
 !SLIDE
+
+![Arduino, del, et photoresistance](arduino_mqtt_bb.svg)
+
+!SLIDE
 ##Usage possible
 
 La télémétrie n'est qu'un des messages possibles.
