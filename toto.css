@@ -31,7 +31,7 @@ body {
     font-weight: 400;
 }
 
-.slide p {
+.slide p, .slide ul {
     margin-bottom: 30pt;
     font-weight: 400;
 }
