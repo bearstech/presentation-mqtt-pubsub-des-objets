@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>MQTT, le pubsub des objets</title>
+      <link rel="stylesheet" href="css/fonts.css">
+      <link rel="stylesheet" href="css/slideshow.css">
+      <link rel="stylesheet" href="css/theme.css">
+      <link rel="stylesheet" href="toto.css">
+    <link rel="stylesheet" href="css/pygments/solarized.css">
+    <script src="js/prefixfree.min.js"></script>
+  </head>
+  <body data-duration="20">
+    <section>
+      <header class="slide">
+        <h1>MQTT, le pubsub des objets</h1>
+        <h2></h2>
+      </header>
+    </section>
+      <section>
+        <header class="slide">
+          <h1></h1>
+        </header>
+          <section class="slide ">
+            <p>Mathieu Lecarme</p>
+
+<p><a href="mailto:mlecarme@bearstech.com">mlecarme@bearstech.com</a></p>
+
+<p><a href="https://blog.bearstech.com/">https://blog.bearstech.com/</a></p>
+
+<p><em>athoune</em> pour irc, twitter, github…</p>
+
+          </section>
+      </section>
+      <section>
+        <header class="slide">
+          <h1>Digression sur le réseau</h1>
+        </header>
+          <section class="slide ">
+            <p><img src="1.png" alt="Client-serveur"></p>
+
+          </section>
+          <section class="slide ">
+            <p><img src="2.png" alt="NAT"></p>
+
+          </section>
+          <section class="slide ">
+            <p><img src="3.png" alt="Intermediaire"></p>
+
+          </section>
+          <section class="slide ">
+            <p><img src="4.png" alt="PubSub"></p>
+
+          </section>
+          <section class="slide ">
+            <p><img src="5.png" alt="Message box"></p>
+
+          </section>
+          <section class="slide ">
+            <p><img src="6.png" alt="Cascade"></p>
+
+          </section>
+      </section>
+      <section>
+        <header class="slide">
+          <h1>MQTT</h1>
+        </header>
+          <section class="slide ">
+            <h1>MQTT</h1>
+
+<p>Message Queue Telemetry Transport</p>
+
+          </section>
+          <section class="slide ">
+            <p><a href="http://mqtt.org/">MQTT</a> a été initialement conçu par des chercheurs d'IBM et de Cirrus Link Solution
+comme un remplaçant de SNMP, simple, léger et résilient.</p>
+
+<p>Il fonctionne à l'envers, on s'abonne pour recevoir des informations, plutôt que l'inefficace polling.</p>
+
+<p>Les clients sont actifs, envoient et reçoivent des évènements.</p>
+
+          </section>
+          <section class="slide ">
+            <h2>Un protocole</h2>
+
+<p>MQTT est un protocole bien spécifié, <a href="http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html">en version 3.1</a>, implémenté par différents clients et serveurs.
+Il souhaiterait devenir un standard OASIS.
+Certaines implémentations sont libres et massives comme RabbitMQ ou plus légères, comme Mosquitto.</p>
+
+<p>Il existe <a href="http://mqtt.org/MQTT-S_spec_v1.2.pdf">MQTT-S</a>, une sous norme spécifique aux capteurs non TCP/IP (Zigbee, par exemple).</p>
+
+          </section>
+          <section class="slide ">
+            <h2>Simple</h2>
+
+<ul>
+<li>TCP/IP, mode connecté, orienté message</li>
+<li>Authentification naïve ou certificat SSL</li>
+<li>Sujet en UTF8, <em>payload</em> en blob</li>
+<li>Pas de headers, mais quelques flags</li>
+<li>Abonnement sur des patterns</li>
+<li>Ping des clients</li>
+</ul>
+
+          </section>
+          <section class="slide ">
+            <h2>Léger</h2>
+
+<ul>
+<li>Overhead minimaliste, 2 octets pour un petit message, 5 octets pour 256M.</li>
+<li><em>Topic</em> de 64k maximum</li>
+<li>Pas de sérialisation imposée, ni même proposée</li>
+<li>Fire and forget possible (QOS 0), ainsi qu'un mode déconnecté</li>
+<li>Modèle évènementiel</li>
+</ul>
+
+          </section>
+          <section class="slide ">
+            <h2>Résilient</h2>
+
+<ul>
+<li>3 niveaux de QOS : pas plus d’un, au moins un, juste un.</li>
+<li>Testament et dernière volonté</li>
+<li>Boite à messages</li>
+<li>Routage de messages possible</li>
+<li>Rétention de messages</li>
+</ul>
+
+          </section>
+          <section class="slide ">
+            <h2>Testament et dernière volonté</h2>
+
+<p>Un message est préparé (topic, payload, qos, retain) et ne sera délivré qu'en cas de disparition brutale du client.</p>
+
+<h2>Rétention</h2>
+
+<p>Lors d'une publication, il est possible d'activer le bit <em>retain</em>.
+Les nouveaux venus recevront ce message dès leur abonnement.</p>
+
+          </section>
+          <section class="slide ">
+            <h2>Monde réel</h2>
+
+<p>MQTT a plus de 10 ans et est utilisé dans des contextes variés</p>
+
+<ul>
+<li>17 000 km de pipelines pétroliers, 30k capteurs</li>
+<li>Monitoring de pacemakeur</li>
+<li>Applications iOS Facebook</li>
+</ul>
+
+          </section>
+          <section class="slide ">
+            <h2>Code</h2>
+
+<ul>
+<li>Il possible de l'utiliser sans toucher à du code d'IBM ou même Eclipse</li>
+<li>Son modèle évènementiel fait un peu grincer les langages séquentiels</li>
+<li>Beaucoup de serveurs pour peu de clients. CLI, C, python, lua, Objective-C</li>
+<li>Proxy websockets existant, mais sans normes</li>
+<li>Rien n'est prévu pour découvrir le broker, il faut configurer l'application</li>
+</ul>
+
+          </section>
+          <section class="slide ">
+            <h2>Démo</h2>
+
+<p>Mosquitto comme broker.</p>
+
+<p>Un client Arduino avec une photorésistance et une DEL.</p>
+
+<p>Un client Python et des notifications OSX.</p>
+
+          </section>
+          <section class="slide ">
+            <p><img src="arduino_mqtt_bb.svg" alt="Arduino, del, et photoresistance"></p>
+
+          </section>
+          <section class="slide ">
+            <h2>Usage possible</h2>
+
+<p>La télémétrie n'est qu'un des messages possibles.</p>
+
+<ul>
+<li>Call back pour des taches longues (Jenkins, Transmission…)</li>
+<li>Ping et alerte</li>
+<li>Hook asynchrone pour un serveur synchrone</li>
+<li>Controle de zombies</li>
+</ul>
+
+<p>MQTT empiète partiellement sur
+<a href="http://fr.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol">AMQP</a>,
+<a href="http://fr.wikipedia.org/wiki/XMPP">XMPP</a>,
+<a href="http://fr.wikipedia.org/wiki/Internet_Relay_Chat">IRC</a>,
+<a href="http://fr.wikipedia.org/wiki/Simple_Network_Management_Protocol">SNMP</a>,
+<a href="http://opensoundcontrol.org/">OSC</a>,
+<a href="http://coreos.com/docs/etcd/">etcd</a> …</p>
+
+          </section>
+      </section>
+      <script src="js/prefixfree.min.js"></script>
+      <script src="js/slideshow.js"></script>
+    <script>slideshow = new SlideShow();</script>
+  </body>
+</html>

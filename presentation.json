@@ -1,0 +1,10 @@
+{
+    "title": "MQTT, le pubsub des objets",
+    "theme": "memories",
+    "duration": 20,
+    "sections": {
+        "main": "",
+        "reseau": "Digression sur le réseau",
+        "mqtt": "MQTT"
+    }
+}
