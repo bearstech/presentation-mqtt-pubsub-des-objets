@@ -6,7 +6,7 @@ Message Queue Telemetry Transport
 
 !SLIDE
 
-MQTT a été initialement conçu par des chercheurs d'IBM et de Cirrus Link Solution
+[MQTT](http://mqtt.org/) a été initialement conçu par des chercheurs d'IBM et de Cirrus Link Solution
 comme un remplaçant de SNMP, simple, léger et résilient.
 
 Il fonctionne à l'envers, on s'abonne pour recevoir des informations, plutôt que l'inefficace polling.
@@ -17,11 +17,11 @@ Les clients sont actifs, envoient et reçoivent des évènements.
 
 ##Un protocole
 
-MQTT est un protocole bien spécifié, en version 3.1, implémenté par différents clients et serveurs.
+MQTT est un protocole bien spécifié, [en version 3.1](http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html), implémenté par différents clients et serveurs.
 Il souhaiterait devenir un standard OASIS.
 Certaines implémentations sont libres et massives comme RabbitMQ ou plus légères, comme Mosquitto.
 
-Il existe MQTT-S, une sous norme spécifique aux capteurs non TCP/IP (Zigbee, par exemple).
+Il existe [MQTT-S](http://mqtt.org/MQTT-S_spec_v1.2.pdf), une sous norme spécifique aux capteurs non TCP/IP (Zigbee, par exemple).
 
 !SLIDE
 
@@ -93,11 +93,14 @@ Mosquitto comme broker.
 
 Un client Arduino avec une photorésistance et une DEL.
 
+Un client Python et des notifications OSX.
+
 !SLIDE
 
 ![Arduino, del, et photoresistance](arduino_mqtt_bb.svg)
 
 !SLIDE
+
 ##Usage possible
 
 La télémétrie n'est qu'un des messages possibles.
@@ -107,4 +110,10 @@ La télémétrie n'est qu'un des messages possibles.
 * Hook asynchrone pour un serveur synchrone
 * Controle de zombies
 
-MQTT empiète partiellement sur AMQP, XMPP, IRC, SNMP, OSC, etcd…
+MQTT empiète partiellement sur
+[AMQP](http://fr.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol),
+[XMPP](http://fr.wikipedia.org/wiki/XMPP),
+[IRC](http://fr.wikipedia.org/wiki/Internet_Relay_Chat),
+[SNMP](http://fr.wikipedia.org/wiki/Simple_Network_Management_Protocol),
+[OSC](http://opensoundcontrol.org/),
+[etcd](http://coreos.com/docs/etcd/) …
