@@ -6,7 +6,8 @@ Message Queue Telemetry Transport
 
 !SLIDE
 
-MQTT a été initialement conçu par des chercheurs d'IBM et de Cirrus Link Solution comme un remplaçant de SNMP, simple, léger et résiliant.
+MQTT a été initialement conçu par des chercheurs d'IBM et de Cirrus Link Solution
+comme un remplaçant de SNMP, simple, léger et résilient.
 
 Il fonctionne à l'envers, on s'abonne pour recevoir des informations, plutôt que l'inefficace polling.
 
@@ -16,7 +17,8 @@ Les clients sont actifs, envoient et reçoivent des évènements.
 
 ##Un protocole
 
-MQTT est un protocole bien spécifié, en version 3.1, implémenté par différents clients et serveurs. Il souhaiterait devenir un standard OASIS.
+MQTT est un protocole bien spécifié, en version 3.1, implémenté par différents clients et serveurs.
+Il souhaiterait devenir un standard OASIS.
 Certaines implémentations sont libres et massives comme RabbitMQ ou plus légères, comme Mosquitto.
 
 Il existe MQTT-S, une sous norme spécifique aux capteurs non TCP/IP (Zigbee, par exemple).
@@ -44,12 +46,24 @@ Il existe MQTT-S, une sous norme spécifique aux capteurs non TCP/IP (Zigbee, pa
 
 !SLIDE
 
-##Résiliant
+##Résilient
 
 * 3 niveaux de QOS : pas plus d’un, au moins un, juste un.
 * Testament et dernière volonté
 * Boite à messages
 * Routage de messages possible
+* Rétention de messages
+
+!SLIDE
+
+##Testament et dernière volonté
+
+Un message est préparé (topic, payload, qos, retain) et ne sera délivré qu'en cas de disparition brutale du client.
+
+## Rétention
+
+Lors d'une publication, il est possible d'activer le bit _retain_.
+Les nouveaux venus recevront ce message dès leur abonnement.
 
 !SLIDE
 
@@ -70,3 +84,23 @@ MQTT a plus de 10 ans et est utilisé dans des contextes variés
 * Beaucoup de serveurs pour peu de clients. CLI, C, python, lua, Objective-C
 * Proxy websockets existant, mais sans normes
 * Rien n'est prévu pour découvrir le broker, il faut configurer l'application
+
+!SLIDE
+
+##Démo
+
+Mosquitto comme broker.
+
+Un client Arduino avec une photorésistance et une DEL.
+
+!SLIDE
+##Usage possible
+
+La télémétrie n'est qu'un des messages possibles.
+
+* Call back pour des taches longues (Jenkins, Transmission…)
+* Ping et alerte
+* Hook asynchrone pour un serveur synchrone
+* Controle de zombies
+
+MQTT empiète partiellement sur AMQP, XMPP, IRC, SNMP, OSC, etcd…
